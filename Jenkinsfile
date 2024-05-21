@@ -1,20 +1,16 @@
 pipeline {
     agent any
+
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                echo 'Allication build stage...' 
-        }
-       }
-        stage('Test') {
-            steps {
-                echo 'Allication test stage' 
-        }
-        }
-        stage('Run') {
-            steps {
-                echo 'Allication run stage' 
+                git url: 'https://github.com/Aqibkhan037/Tocs.git', branch: 'main'
             }
         }
-    }
+        stage('Run Python Script') {
+            steps {
+                sh 'Python.py'
+            }
+        }
+    }
 }
