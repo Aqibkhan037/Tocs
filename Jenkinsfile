@@ -15,7 +15,7 @@ pipeline {
         
         stage('Run Python Script') {
             steps {
-                sh 'python Python.py'
+                sh 'gcloud compute zones list'
             }
         }
     }
